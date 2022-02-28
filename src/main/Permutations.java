@@ -6,6 +6,16 @@ import java.util.List;
 // problem # 46
 public class Permutations {
 
+    public static void main(String[] args) {
+        Permutations p = new Permutations();
+        int[] input = new int[]{1,2,3};
+        List<List<Integer>> ll = p.permute(input);
+
+        for (List<Integer> l : ll) {
+            System.out.println(l.toString());
+        }
+    }
+
     public List<List<Integer>> permute (int[] nums) {
         List<List<Integer>> ll = new ArrayList<>();
         backTrack(ll, new ArrayList<Integer>(), nums);
