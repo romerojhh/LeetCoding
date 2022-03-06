@@ -18,7 +18,7 @@ public class TODOZeroOneMatrix {
     }
 
     public int[][] updateMatrix(int[][] mat) {
-
+        return null;
     }
     /*
     public int[][] updateMatrix(int[][] mat) {
