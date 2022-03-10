@@ -2,6 +2,12 @@ package main;
 
 import java.util.Stack;
 
+/*
+    232. Implement Queue using Stacks
+
+    Implement a first in first out (FIFO) queue using only two stacks.
+    The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+ */
 public class MyQueue {
     public static void main (String[] args) {
         MyQueue q = new MyQueue();
@@ -26,63 +32,26 @@ public class MyQueue {
     }
 
     public void push(int x) {
-        // If pop is executed before, we have to update the current content in s1
-        if (isExecutedPop) {
-            s1.clear();
-            for (int i : s2) {
-                s1.push(i);
-            }
-            isExecutedPop = false;
-        }
-
-        isExecutedPush = true;
-
         s1.push(x);
         size++;
     }
 
     public int pop() {
-        if (empty()) {
-            throw new IllegalStateException();
-        }
-        // if push is executed before, we have to reset the s2
-        if (isExecutedPush) {
-            s2.clear();
-        }
-
-        while (!s1.empty()) {
-            s2.push(s1.pop());
-        }
-        // now s1 is empty
-
-        /*
-        if (isExecutedPush) {
-            s2.clear();
-            for (int i : s1) {
-                s2.push(i);
+        if (s2.empty()) {
+            while (!s1.isEmpty()) {
+                s2.add(s1.pop());
             }
-            isExecutedPush = false;
         }
 
-        isExecutedPop = true;
-
-         */
         size--;
-
         return s2.pop();
     }
 
     public int peek() {
-        if (empty()) {
-            throw new IllegalStateException();
-        }
-
-        if (isExecutedPush) {
-            s2.clear();
-            for (int i : s1) {
-                s2.push(i);
+        if (s2.empty()) {
+            while (!s1.isEmpty()) {
+                s2.add(s1.pop());
             }
-            isExecutedPush = false;
         }
 
         return s2.peek();
