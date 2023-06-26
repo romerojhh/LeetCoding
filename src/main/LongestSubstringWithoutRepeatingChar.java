@@ -23,7 +23,7 @@ public class LongestSubstringWithoutRepeatingChar {
 
         for (int i = 0 ; i < s.length() ; i++) {
             char currChar = s.charAt(i);
-            if (map.containsKey(s.charAt(i))) {
+            if (map.containsKey(currChar)) {
                 int duplicateCharIdx = map.get(currChar);
                 // restart from duplicateIdx + 1;
                 i = duplicateCharIdx;
@@ -38,4 +38,27 @@ public class LongestSubstringWithoutRepeatingChar {
 
         return maxLength;
     }
+
+    // O(N^2)
+    //public int lengthOfLongestSubstring(String s) {
+    //        int longest = 0;
+    //        HashSet<Character> set = new HashSet<>();
+    //        for (int i = 0 ; i < s.length(); i++) {
+    //            for (int j = i ; j < s.length(); j++) {
+    //                if (!set.contains(s.charAt(j))) {
+    //                    set.add(s.charAt(j));
+    //                } else {
+    //                    longest = Math.max(longest, set.size());
+    //                    set.clear();
+    //                    break;
+    //                }
+    //            }
+    //            longest = Math.max(longest, set.size());
+    //            if (longest == s.length()) {
+    //                break;
+    //            }
+    //        }
+    //
+    //        return longest;
+    //    }
 }
