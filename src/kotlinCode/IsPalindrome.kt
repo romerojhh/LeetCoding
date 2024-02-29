@@ -2,7 +2,7 @@ package kotlinCode
 
 import kotlin.collections.ArrayDeque
 
-fun main(args: Array<String>) {
+fun main() {
     val a = "abcba"
     val b = "abccba"
     val c = "abcd"
