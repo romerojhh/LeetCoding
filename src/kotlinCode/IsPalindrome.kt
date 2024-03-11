@@ -10,6 +10,10 @@ fun main() {
     println(isPalindrome(a))
     println(isPalindrome(b))
     println(isPalindrome(c))
+
+    println(isPalindromeUsingTwoPointers(a))
+    println(isPalindromeUsingTwoPointers(b))
+    println(isPalindromeUsingTwoPointers(c))
 }
 
 fun isPalindrome(string: String): Boolean {
@@ -33,4 +37,20 @@ fun isPalindrome(string: String): Boolean {
     }
 
     return stack.size == 0
+}
+
+fun isPalindromeUsingTwoPointers(string: String): Boolean {
+    var left = 0
+    var right = string.length - 1
+
+    while (left <= right) {
+        if (string[left] == string[right] || left == right) {
+            left++
+            right--
+        } else {
+            return false
+        }
+    }
+
+    return true
 }
